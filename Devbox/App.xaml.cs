@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Devbox.Interfaces;
+using Devbox.Services;
+using Devbox.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,14 +15,27 @@ namespace Devbox
 {
     public partial class App : Application
     {
-        private readonly IHost _host;
+        internal readonly IHost _host;
 
         public App()
         {
-            _host = Host.CreateDefaultBuilder().ConfigureServices(s =>
-            {
+           _host = Host.CreateDefaultBuilder().ConfigureServices(services =>
+           {
+               services.AddSingleton<AppViewModel>();
+               services.AddSingleton<IDataService, DataService>();
+               services.AddSingleton<MainWindow>(s => new MainWindow()
+               {
+                   DataContext = s.GetRequiredService<MainWindow>()
+               });
+           }).Build();
+        }
 
-            }).Build();
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            _host.Start();
+            MainWindow = _host.Services.GetRequiredService<MainWindow>();
+            MainWindow.Show();
+            base.OnStartup(e);
         }
     }
 }
