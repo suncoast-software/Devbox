@@ -1,4 +1,6 @@
-﻿using Devbox.Interfaces;
+﻿using Devbox.Data.Factories;
+using Devbox.Interfaces;
+using Devbox.Navigation;
 using Devbox.Services;
 using Devbox.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +18,9 @@ namespace Devbox
            _host = Host.CreateDefaultBuilder().ConfigureServices(services =>
            {
                services.AddSingleton<AppViewModel>();
+               services.AddTransient<AppDbContextFactory>();
                services.AddSingleton<IDataService, DataService>();
+               services.AddSingleton<INavigator, Navigator>();
                services.AddSingleton<MainWindow>(s => new MainWindow()
                {
                    DataContext = s.GetRequiredService<AppViewModel>()
