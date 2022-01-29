@@ -10,6 +10,7 @@ namespace Devbox.Services
     internal class INavigator
     {
         public event Action? CurrentViewModelChanged;
+       
         public BaseViewModel? CurrentViewModel { get; set; }
     }
 }

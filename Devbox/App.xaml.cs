@@ -21,6 +21,7 @@ namespace Devbox
                services.AddTransient<AppDbContextFactory>();
                services.AddSingleton<IDataService, DataService>();
                services.AddSingleton<INavigator, Navigator>();
+               services.AddSingleton<ISystemMessage, SystemMessageService>();
                services.AddSingleton<MainWindow>(s => new MainWindow()
                {
                    DataContext = s.GetRequiredService<AppViewModel>()

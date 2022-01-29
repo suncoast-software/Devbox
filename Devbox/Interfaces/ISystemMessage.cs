@@ -9,8 +9,9 @@ namespace Devbox.Interfaces
 {
     internal interface ISystemMessage
     {
-        SystemMessageType MessageType { get; set; }
         SystemMessage SystemMessage { get; set; }
+
+        public event Action? SystemMessageChanged;
         SystemMessage CreateSystemMessage(Guid id, string message, SystemMessageType type, DateTime created);
     }
 }

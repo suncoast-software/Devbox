@@ -10,12 +10,31 @@ namespace Devbox.Services
 {
     internal class SystemMessageService : ISystemMessage
     {
-        public SystemMessageType MessageType { get; set; }
-        public SystemMessage SystemMessage { get; set; }
+        public SystemMessage? SystemMessage { get; set; }
+
+        public event Action? SystemMessageChanged;
+
+        private SystemMessage? _globalSystemMessage;
+        public SystemMessage? GlobalSystemMessage
+        {
+            get => _globalSystemMessage;
+            set
+            {
+                _globalSystemMessage = value;
+                OnSystemMessageChanged();
+            }
+        }
+
+       
 
         public SystemMessage CreateSystemMessage(Guid id, string message, SystemMessageType type, DateTime created)
         {
             throw new NotImplementedException();
+        }
+
+        private void OnSystemMessageChanged()
+        {
+            SystemMessageChanged?.Invoke();
         }
     }
 }

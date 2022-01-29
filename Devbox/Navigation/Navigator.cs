@@ -1,4 +1,5 @@
-﻿using Devbox.Services;
+﻿using Devbox.Models;
+using Devbox.Services;
 using Devbox.Utility;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace Devbox.Navigation
     internal class Navigator : INavigator
     {
         public event Action? CurrentViewModelChanged;
+
+        public event Action? SystemMessageChanged;
 
         private BaseViewModel? _currentViewModel;
         public BaseViewModel? CurrentViewModel
