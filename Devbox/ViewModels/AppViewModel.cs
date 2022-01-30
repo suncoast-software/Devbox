@@ -18,6 +18,7 @@ namespace Devbox.ViewModels
         private readonly AppDbContextFactory? _dbFactory;
         private readonly INavigator? _navigator;
         private ISystemMessage? _systemMessage;
+        public ICommand ExitAppCommand { get; set; }
         public BaseViewModel? CurrentViewModel => _navigator.CurrentViewModel;
         public ISystemMessage? SystemMessage => (ISystemMessage?)_systemMessage.SystemMessage;
         public AppViewModel(IDataService? dataService, AppDbContextFactory? dbFactory, INavigator? navigator, ISystemMessage systemMessage)
@@ -28,6 +29,13 @@ namespace Devbox.ViewModels
             _systemMessage = systemMessage;
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
             _systemMessage.SystemMessageChanged += OnSystemMessageChanged;
+            ExitAppCommand = new RelayCommand(ExitApp);
+            
+        }
+
+        private void ExitApp()
+        {
+           Environment.Exit(0);
         }
 
         private void OnSystemMessageChanged()

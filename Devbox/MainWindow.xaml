@@ -4,19 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Devbox"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="{x:Null}"
-        Height="550" Width="800">
+        Height="660" Width="1010">
     <Grid>
-        <Border Height="540"
-                Width="790"
+        <Border Height="640"
+                Width="990"
                 CornerRadius="12"
                 Background="{StaticResource Primary100ToSecondary200GradientBrush}">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="6" ShadowDepth="4" Direction="270" Color="#000" Opacity=".6"/>
+                <DropShadowEffect BlurRadius="12" ShadowDepth="6" Direction="270" Color="#000" Opacity=".6"/>
             </Border.Effect>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -29,6 +30,8 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
+                
+                <!--#region  HEADER -->
                 <Border Grid.Row="0"
                         Grid.Column="0"
                         Grid.ColumnSpan="3"
@@ -51,8 +54,24 @@
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="2"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Right">
+                            <Button Height="40" Width="70"
+                                    Background="{x:Null}"
+                                    HorizontalAlignment="Center"
+                                    BorderBrush="{x:Null}"
+                                    Command="{Binding ExitAppCommand}">
+                                <md:PackIcon Kind="ExitToApp"
+                                             Height="30"
+                                             Width="40"
+                                             Foreground="{StaticResource PrimaryDarkBrush500}"/>
+                            </Button>
+                        </StackPanel>
                     </Grid>
                 </Border>
+                <!-- #endregion HEADER -->
+                
             </Grid>
         </Border>
     </Grid>
