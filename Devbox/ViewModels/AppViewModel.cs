@@ -1,5 +1,6 @@
 ﻿using Devbox.Data.Factories;
 using Devbox.Interfaces;
+using Devbox.Models;
 using Devbox.Services;
 using Devbox.Utility;
 using Devbox.Utility.Commands;
@@ -29,6 +30,13 @@ namespace Devbox.ViewModels
             set => OnPropertyChanged(ref _currentStatus, value);
         }
 
+        private User _currentUser;
+        public User CurrentUser
+        {
+            get => _currentUser;
+            set => OnPropertyChanged(ref _currentUser, value);
+        }
+
         public AppViewModel(IDataService? dataService, AppDbContextFactory? dbFactory, INavigator? navigator, ISystemMessage systemMessage)
         {
             _dataService = dataService;
@@ -39,6 +47,11 @@ namespace Devbox.ViewModels
             _systemMessage.SystemMessageChanged += OnSystemMessageChanged;
             ExitAppCommand = new RelayCommand(ExitApp);
             //CurrentStatus = "Online";
+            User user = new();
+            user.Id = Guid.NewGuid();
+            user.Username = "Async(void)";
+            user.ImageUrl = "";
+            CurrentUser = user;
         }
 
         private void ExitApp()

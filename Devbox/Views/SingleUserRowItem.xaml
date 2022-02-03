@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="Devbox.Views.SingleUserRowItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Devbox.Views"
+             mc:Ignorable="d" 
+             Height="82" Width="220">
+    <Grid>
+        <Border Width="210"  
+                 Height="80"
+                 Background="{StaticResource PrimaryDarkBrush500}"
+                 CornerRadius="12"
+                 VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="2" Direction="270" Color="#000" Opacity=".5"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="2"/>
+                </Grid.RowDefinitions>
+                
+                <!--#region  Image Container with Messages-->
+                <Grid Grid.Column="1"
+                      Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--#region  Profile Area-->
+                    <Button Grid.Column="0"
+                          Width="60"
+                          Height="40"
+                          Background="{x:Null}"
+                          BorderBrush="{x:Null}"
+                          VerticalAlignment="Top">
+                        <md:PackIcon Kind="User"
+                                     Width="40"
+                                     Height="40"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"/>
+                    </Button>
+                    <TextBlock Text="{Binding Username}"
+                               Grid.Column="1"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryDarkBrush300}"/>
+                    <!--#endregion-->
+                           
+                </Grid>
+                <!--#endregion-->
+                
+                <!--#region  Command Buttons -->
+                <Grid Grid.Row="2"
+                      Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0">
+                        <Button Grid.Column="0"
+                          Width="50"
+                          Height="40"
+                          Background="{x:Null}"
+                          BorderBrush="{x:Null}">
+                            <md:PackIcon Kind="Download"
+                                     Width="30"
+                                     Height="20"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     Foreground="{StaticResource PrimaryDarkBrush300}"/>
+                        </Button>
+                        <Button Grid.Column="0"
+                          Width="50"
+                          Height="40"
+                          Background="{x:Null}"
+                          BorderBrush="{x:Null}">
+                            <md:PackIcon Kind="Send"
+                                     Width="30"
+                                     Height="20"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     Foreground="{StaticResource PrimaryDarkBrush300}"/>
+                        </Button>
+                        <Button Grid.Column="0"
+                          Width="50"
+                          Height="40"
+                          Background="{x:Null}"
+                          BorderBrush="{x:Null}">
+                            <md:PackIcon Kind="Emoji"
+                                     Width="30"
+                                     Height="20"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     Foreground="{StaticResource PrimaryDarkBrush300}"/>
+                        </Button>
+                        <Button Grid.Column="0"
+                          Width="50"
+                          Height="40"
+                          Background="{x:Null}"
+                          BorderBrush="{x:Null}">
+                            <md:PackIcon Kind="Note"
+                                     Width="30"
+                                     Height="20"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     Foreground="{StaticResource PrimaryDarkBrush300}"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <!--#endregion-->
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

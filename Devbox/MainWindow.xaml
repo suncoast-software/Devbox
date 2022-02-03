@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Devbox"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:uc="clr-namespace:Devbox.Views"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -80,7 +81,7 @@
                         <ColumnDefinition Width="20"/>
                         <ColumnDefinition Width="800"/>
                         <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="280"/>
+                        <ColumnDefinition Width="260"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="20"/>
@@ -148,7 +149,8 @@
                     <!--#endregion-->
                     
                     <!--#region USER LIST -->
-                    
+                    <uc:UsersView Grid.Column="4"
+                                  Grid.Row="1"/>
                     <!--#endregion-->
                     
                 </Grid>
@@ -166,16 +168,21 @@
                                 Orientation="Horizontal"
                                 Margin="10 0"
                                 VerticalAlignment="Center">
-
-                        <TextBlock Text="{Binding CurrentStatus}"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Foreground="{StaticResource PrimaryDarkBrush500}"/>
                         <Border CornerRadius="50"
                                 Height="18"
                                 Width="18"
                                 Background="{StaticResource PrimaryAccentBrush}"
-                                Margin="20 0"/>
+                                Margin="0 0 20 0"/>
+                        <TextBlock Text="{Binding CurrentUser.Username}"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryDarkBrush500}"
+                                   Margin="0 0 10 0"/>
+                        <TextBlock Text="{Binding CurrentStatus}"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryDarkBrush500}"/>
+                       
                     </StackPanel>
                    
                 </Grid>
