@@ -21,6 +21,14 @@ namespace Devbox.ViewModels
         public ICommand ExitAppCommand { get; set; }
         public BaseViewModel? CurrentViewModel => _navigator.CurrentViewModel;
         public ISystemMessage? SystemMessage => (ISystemMessage?)_systemMessage.SystemMessage;
+
+        private string _currentStatus = "Online";
+        public string CurrentStatus
+        {
+            get => _currentStatus;
+            set => OnPropertyChanged(ref _currentStatus, value);
+        }
+
         public AppViewModel(IDataService? dataService, AppDbContextFactory? dbFactory, INavigator? navigator, ISystemMessage systemMessage)
         {
             _dataService = dataService;
@@ -30,12 +38,13 @@ namespace Devbox.ViewModels
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
             _systemMessage.SystemMessageChanged += OnSystemMessageChanged;
             ExitAppCommand = new RelayCommand(ExitApp);
-            
+            //CurrentStatus = "Online";
         }
 
         private void ExitApp()
         {
-           Environment.Exit(0);
+            Dispose();
+            Environment.Exit(0);
         }
 
         private void OnSystemMessageChanged()

@@ -10,10 +10,10 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="{x:Null}"
-        Height="660" Width="1010">
+        Height="860" Width="1210">
     <Grid>
-        <Border Height="640"
-                Width="990"
+        <Border Height="840"
+                Width="1190"
                 CornerRadius="12"
                 Background="{StaticResource Primary100ToSecondary200GradientBrush}">
             <Border.Effect>
@@ -62,7 +62,7 @@
                                     HorizontalAlignment="Center"
                                     BorderBrush="{x:Null}"
                                     Command="{Binding ExitAppCommand}">
-                                <md:PackIcon Kind="ExitToApp"
+                                <md:PackIcon Kind="Power"
                                              Height="30"
                                              Width="40"
                                              Foreground="{StaticResource PrimaryDarkBrush500}"/>
@@ -70,8 +70,116 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <!-- #endregion HEADER -->
+                <!--#endregion HEADER -->
                 
+                <!--#region  MAIN CONTENT -->
+                <Grid Grid.Column="1"
+                      Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="800"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="280"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!--#region  NAVBAR -->
+                    <Grid Grid.Column="0"
+                          Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0"
+                                Height="60"
+                                Width="80"
+                                Command=""
+                                Background="{x:Null}"
+                                BorderBrush="{x:Null}">
+                            <md:PackIcon Kind="HomeAccount"
+                                         Height="50"
+                                         Width="50"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Foreground="{StaticResource PrimaryDarkBrush500}"/>
+                        </Button>
+                        <Button Grid.Row="1"
+                                Height="60"
+                                Width="80"
+                                Command=""
+                                Background="{x:Null}"
+                                BorderBrush="{x:Null}">
+                            <md:PackIcon Kind="PersonAdd"
+                                         Height="50"
+                                         Width="50"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Foreground="{StaticResource PrimaryDarkBrush500}"/>
+                        </Button>
+
+                        <Button Grid.Row="6"
+                                Height="60"
+                                Width="80"
+                                Command=""
+                                Background="{x:Null}"
+                                BorderBrush="{x:Null}">
+                            <md:PackIcon Kind="Settings"
+                                         Height="50"
+                                         Width="50"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Foreground="{StaticResource PrimaryDarkBrush500}"/>
+                        </Button>
+                    </Grid>
+                    <!--#endregion-->
+                    
+                    <!--#region APP CONTENT -->
+                    
+                    <!--#endregion-->
+                    
+                    <!--#region USER LIST -->
+                    
+                    <!--#endregion-->
+                    
+                </Grid>
+                <!--#endregion-->
+                
+                <!--#region  FOOTER -->
+                <Grid Grid.Column="1"
+                      Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0"
+                                Orientation="Horizontal"
+                                Margin="10 0"
+                                VerticalAlignment="Center">
+
+                        <TextBlock Text="{Binding CurrentStatus}"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryDarkBrush500}"/>
+                        <Border CornerRadius="50"
+                                Height="18"
+                                Width="18"
+                                Background="{StaticResource PrimaryAccentBrush}"
+                                Margin="20 0"/>
+                    </StackPanel>
+                   
+                </Grid>
+                <!--#endregion-->
             </Grid>
         </Border>
     </Grid>
