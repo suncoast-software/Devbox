@@ -46,7 +46,6 @@ namespace Devbox.ViewModels
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
             _systemMessage.SystemMessageChanged += OnSystemMessageChanged;
             ExitAppCommand = new RelayCommand(ExitApp);
-            //CurrentStatus = "Online";
             User user = new();
             user.Id = Guid.NewGuid();
             user.Username = "Async(void)";
