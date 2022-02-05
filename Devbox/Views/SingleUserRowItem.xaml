@@ -10,7 +10,7 @@
     <Grid>
         <Border Width="210"  
                  Height="80"
-                 Background="{StaticResource PrimaryDarkBrush500}"
+                 Background="{StaticResource Primary100ToSecondary200GradientBrush}"
                  CornerRadius="12"
                  VerticalAlignment="Top"
                 HorizontalAlignment="Left">

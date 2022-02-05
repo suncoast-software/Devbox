@@ -5,12 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Devbox.Views"
              mc:Ignorable="d" 
-             Height="150" Width="700">
+             Height="100" Width="700">
     <Grid>
-        <Border Height="140"
+        <Border Height="90"
                 Width="690"
                 CornerRadius="12"
-                Background="{StaticResource Primary100ToSecondary200GradientBrush}">
+                Background="{StaticResource Primary100ToSecondary200GradientBrush}"
+                VerticalAlignment="Top">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="2" ShadowDepth="2" Direction="270" Color="#000" Opacity=".5"/>
             </Border.Effect>

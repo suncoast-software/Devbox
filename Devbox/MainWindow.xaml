@@ -144,8 +144,9 @@
                     </Grid>
                     <!--#endregion-->
                     
-                    <!--#region APP CONTENT -->
-                    
+                    <!--#region MESSAGE CONTENT -->
+                    <uc:ChatView Grid.Column="2"
+                                  Grid.Row="1"/>
                     <!--#endregion-->
                     
                     <!--#region USER LIST -->
